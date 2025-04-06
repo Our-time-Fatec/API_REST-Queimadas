@@ -1,8 +1,12 @@
 import { fastify } from 'fastify'
-import { env } from './settings/env'
-import { portSettings } from './config/base-config'
+import type { ZodTypeProvider } from 'fastify-type-provider-zod'
+import { portSettings, registerPlugins, registerRoutes } from '#/config'
+import { env } from '#/settings/env'
 
-const app = fastify()
+const app = fastify().withTypeProvider<ZodTypeProvider>()
+
+registerPlugins(app)
+registerRoutes(app)
 
 app.listen({ port: env.PORT }).then(() => {
   console.log(`HTTP server running on port ${portSettings.PORT}`)
