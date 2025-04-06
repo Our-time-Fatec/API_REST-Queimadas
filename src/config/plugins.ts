@@ -9,6 +9,7 @@ import {
 } from 'fastify-type-provider-zod'
 import { style } from '#/themes/style'
 import { portSettings, version } from './base-config'
+import { logger } from './logger'
 
 export function registerPlugins(app: FastifyInstance) {
   app.register(fastifyCors, {
@@ -41,6 +42,8 @@ export function registerPlugins(app: FastifyInstance) {
       css: [{ filename: 'theme.css', content: style }],
     },
   })
+
+  logger(app)
 
   app.setSerializerCompiler(serializerCompiler)
   app.setValidatorCompiler(validatorCompiler)
