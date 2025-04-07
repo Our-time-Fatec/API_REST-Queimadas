@@ -19,7 +19,7 @@ export function registerPlugins(app: FastifyInstance) {
   app.register(fastifySwagger, {
     openapi: {
       info: {
-        title: 'OurSpace API',
+        title: 'ProcessBurn API',
         version: version,
       },
       components: {

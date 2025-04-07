@@ -1,1 +1,3 @@
-export const routes = []
+import { exampleRoutes } from './example'
+
+export const routes = [exampleRoutes]

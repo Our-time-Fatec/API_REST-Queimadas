@@ -28,13 +28,17 @@ export async function logger(app: FastifyInstance) {
         break
     }
 
-    console.info(
-      pc.yellow('Response: ') +
-        statusColor(
-          `${request.method} ${request.url} - ${statusCode} - ${responseTime}ms`
-        )
-    )
+    if (
+      !request.url.includes('/docs') &&
+      !request.url.includes('/favicon.ico')
+    ) {
+      console.info(
+        pc.yellow('Response: ') +
+          statusColor(
+            `${request.method} ${request.url} - ${statusCode} - ${responseTime}ms`
+          )
+      )
+    }
     done()
   })
-  
 }
