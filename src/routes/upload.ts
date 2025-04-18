@@ -4,6 +4,8 @@ import { StatusCodes } from '#/enums/status-code';
 import { uploadToS3 } from '../aws/uploadToS3';
 import { catchError } from '#/utils/catchError';
 import { MultipartFile } from '@fastify/multipart';
+import { db } from '#/drizzle/client';
+import { uploads } from '#/drizzle/schemas/uploads';
 
 export const uploadRoute: FastifyPluginAsyncZod = async app => {
 
@@ -53,7 +55,18 @@ export const uploadRoute: FastifyPluginAsyncZod = async app => {
         });
       }
 
-      return reply.status(StatusCodes.OK).send(uploadResult);
+      try {
+        await db.insert(uploads).values({
+          url: uploadResult.url,
+          originalFileName: uploadResult.originalFileName,
+        });
+  
+        return reply.status(StatusCodes.OK).send(uploadResult);
+      } catch (dbError) {
+        return reply.status(StatusCodes.INTERNAL_SERVER_ERROR).send({
+          message: 'Erro ao salvar no banco de dados',
+        });
+      }
     }
   );
 };

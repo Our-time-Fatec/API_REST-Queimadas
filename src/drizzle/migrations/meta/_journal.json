@@ -8,6 +8,20 @@
       "when": 1743982117937,
       "tag": "0000_sudden_firedrake",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1745014064538,
+      "tag": "0001_remarkable_sentinels",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1745014336976,
+      "tag": "0002_fearless_the_professor",
+      "breakpoints": true
     }
   ]
 }

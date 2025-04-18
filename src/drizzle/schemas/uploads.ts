@@ -9,7 +9,7 @@ import {
 export const uploads = pgTable('uploads', {
   id: serial('id').primaryKey(),
   url: varchar('url').notNull(),
-  originalFileName: integer('original_filename'),
+  originalFileName: varchar('original_filename').notNull(),
   createdAt: timestamp('created_at').defaultNow(),
   removedAt: timestamp('removed_at'),
 })
