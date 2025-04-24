@@ -10,12 +10,13 @@ import {
 import { style } from '#/themes/style'
 import { portSettings, version } from './base-config'
 import { logger } from './logger'
-
+import multipart from '@fastify/multipart'; 
 export function registerPlugins(app: FastifyInstance) {
   app.register(fastifyCors, {
     origin: [portSettings.BASE_URL, portSettings.WEB_URL],
   })
 
+  app.register(multipart)
   app.register(fastifySwagger, {
     openapi: {
       info: {
