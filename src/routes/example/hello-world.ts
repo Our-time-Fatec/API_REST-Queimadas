@@ -14,7 +14,9 @@ export const helloWorldRoute: FastifyPluginAsyncZod = async app => {
         operationId: 'helloWorld',
         // body: z.object({}),
         // params: z.object({}),
-        // query: z.object({}),
+        // body: z.object({
+        //   name: z.string(),
+        // }),
 
         response: {
           [StatusCodes.OK]: z.object({
@@ -27,7 +29,9 @@ export const helloWorldRoute: FastifyPluginAsyncZod = async app => {
       },
     },
     async (request, reply) => {
-      // Testem essa função de diferentes formas mudando de false para true
+      // Testem essa função de diferentes formas mudando de false para true[]
+
+      // const { name } = request.body
       const exampleController = new ExampleController(false)
 
       const [error, data] = await catchError(exampleController.getHelloWorld())

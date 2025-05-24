@@ -2,7 +2,7 @@ import type { FastifyInstance } from 'fastify'
 import pc from 'picocolors'
 import { StatusCodes } from '#/enums/status-code'
 
-export async function logger(app: FastifyInstance) {
+export async function logs(app: FastifyInstance) {
   let startTime: number
 
   app.addHook('onRequest', (request, reply, done) => {

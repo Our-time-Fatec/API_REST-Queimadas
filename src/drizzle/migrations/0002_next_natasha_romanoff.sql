@@ -1,0 +1,1 @@
+ALTER TABLE "scar_images" ADD COLUMN "created_at" date DEFAULT now() NOT NULL;

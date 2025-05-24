@@ -1,0 +1,1 @@
+ALTER TABLE "scar_images" ALTER COLUMN "created_at" SET DATA TYPE timestamp;

@@ -1,0 +1,1 @@
+export const STAC_URL = 'https://data.inpe.br/bdc/stac/v1/search'

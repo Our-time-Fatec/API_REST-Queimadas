@@ -1,0 +1,2 @@
+-- ALTER TABLE "stac_images" ALTER COLUMN "end_date" DROP DEFAULT;--> statement-breakpoint
+-- ALTER TABLE "stac_images" ALTER COLUMN "end_date" DROP NOT NULL;

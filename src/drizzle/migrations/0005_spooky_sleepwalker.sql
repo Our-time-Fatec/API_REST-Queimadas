@@ -1,0 +1,1 @@
+-- ALTER TABLE "stac_images" ALTER COLUMN "end_date" SET DEFAULT now();
